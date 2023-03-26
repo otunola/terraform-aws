@@ -1,0 +1,9 @@
+a terraform script for a vpc that span across 2 availability zones A and B with 1 public subnet and 2 private subnets. The subnets should span accross the two availability zones A and B
+The vpc should access the internet through the internet gateway
+There should be an application load balancer between availability zone A and B
+There should be a NAT gateway for the 2 private subnets in the public subnet
+The application load balancer on the 2 availability zones should direct traffic to Nginx proxy server in the public subnet in an autoscaling group.
+Configure a bastion host in the pubic subnet for access in the private subnets
+The proxy server in the public subnet should direct traffic to another application load balancer in the private subnet which direct traffic to a tomcat servers in a autoscalling group in the first private subnet
+The web servers in the first private subnet is connected to a multi availability zone mysql RDS in the second private subnet,
+All the instances created should use the same key-pair which should be saved on the control machine
